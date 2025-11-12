@@ -61,3 +61,13 @@ public class ShoppingCart {
     }
 }
 ```
+```Java
+public int getDiscountPercentage(List<String> shoppingCart) {
+        for (String s : shoppingCart) {
+            if (s.equals("Book")) {
+                return 5;
+            }
+        }
+        return 0;
+    }
+```

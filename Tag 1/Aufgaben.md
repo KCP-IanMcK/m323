@@ -15,8 +15,7 @@ public static int calculateScore(String word) {
 Deklarativ:
 ```Java
 public static int wordScore(String word) {
-        word = word.replaceAll("a", "");
-        return word.length();
+        return (int) word.chars().filter(c -> c != 'a').count();
     }
 ```
 
@@ -82,3 +81,4 @@ public int getTipPercentage(List<String> group) {
         return 0;
     }
 ```
+

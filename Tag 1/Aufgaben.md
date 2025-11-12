@@ -71,3 +71,14 @@ public int getDiscountPercentage(List<String> shoppingCart) {
         return 0;
     }
 ```
+# Aufgabe 3
+```Java
+public int getTipPercentage(List<String> group) {
+        if (group.size() > 5) {
+            return 20;
+        } else if (!group.isEmpty()) {
+            return 10;
+        }
+        return 0;
+    }
+```

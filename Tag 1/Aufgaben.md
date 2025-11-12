@@ -19,3 +19,45 @@ public static int wordScore(String word) {
         return word.length();
     }
 ```
+
+# Aufgabe 2
+```Java
+public class ShoppingCart {
+    boolean bookAdded = false;
+    List<String> items = new ArrayList<>();
+
+    public void addItem(String item) {
+        items.add(item);
+        if (item.equals("Book")) {
+            bookAdded = true;
+        }
+    }
+
+    public void removeItem(String item) {
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).equals(item)) {
+                items.remove(i);
+                break;
+            }
+        }
+        bookAdded = false;
+        for (String s : items) {
+            if (s.equals("Book")) {
+                bookAdded = true;
+            }
+        }
+    }
+
+    public List<String> getItems() {
+        return items;
+    }
+    
+    public int getDiscount() {
+        if (bookAdded) {
+            return 5;
+        } else {
+            return 0;
+        }
+    }
+}
+```

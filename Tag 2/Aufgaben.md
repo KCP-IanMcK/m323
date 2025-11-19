@@ -2,9 +2,10 @@
 addDestinationToRoute(Destination, Destination[], Position): Destination[]  -> Destination[] = Route
 ```Java
 public List<Destination> addDestinationToRoute(Destination destination, List<Destination> route, int position) {
-        List<Destination> routeToReturn = new ArrayList<>(route);
-        routeToReturn.add(position, destination);
-        return routeToReturn;
+        return Stream.concat(
+                Stream.concat(route.stream().limit(position), Stream.of(destination))
+                , route.stream().skip(position)
+        ).toList();
     }
 ```
 
@@ -25,17 +26,17 @@ getAccumulatedRoundTime(Time[]): Time
 calculateAverageRoundTime(Time[]): Time
 ```Java
 public static double getAccumulatedRoundTime(List<Double> times) {
-        List<Double> valuedRounds = new ArrayList<>(times);
-        valuedRounds.removeFirst();
-        double accumulatedRoundTime = 0;
-        for (Double time : valuedRounds) {
-            accumulatedRoundTime += time;
-        }
-        return accumulatedRoundTime;
+        return times.stream()
+                .skip(1)
+                .mapToDouble(Double::doubleValue)
+                .sum();
     }
 
 public static double calculateAverageRoundTime(List<Double> times) {
-        double allRoundTimesAccumulated = getAccumulatedRoundTime(times);
-        return allRoundTimesAccumulated / (times.size() - 1);
+        return times.stream()
+                .skip(1)
+                .mapToDouble(Double::doubleValue)
+                .average()
+                .orElse(0);
     }
 ```

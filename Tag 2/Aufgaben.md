@@ -24,16 +24,18 @@ public static List<String> evaluateWords(List<String> words) {
 getAccumulatedRoundTime(Time[]): Time
 calculateAverageRoundTime(Time[]): Time
 ```Java
-public double getAccumulatedRoundTime(List<Double> times) {
+public static double getAccumulatedRoundTime(List<Double> times) {
+        List<Double> valuedRounds = new ArrayList<>(times);
+        valuedRounds.removeFirst();
         double accumulatedRoundTime = 0;
-        for (Double time : times) {
+        for (Double time : valuedRounds) {
             accumulatedRoundTime += time;
         }
         return accumulatedRoundTime;
     }
 
-public double calculateAverageRoundTime(List<Double> times) {
+public static double calculateAverageRoundTime(List<Double> times) {
         double allRoundTimesAccumulated = getAccumulatedRoundTime(times);
-        return allRoundTimesAccumulated / times.size();
+        return allRoundTimesAccumulated / (times.size() - 1);
     }
 ```

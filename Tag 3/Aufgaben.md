@@ -10,3 +10,24 @@
 
 # Aufgabe 2
 ## 2.1
+```JavaScript
+let cartItems = [];
+
+function addToCart(item, cartItems) {
+let newCart = cartItems;
+    newCart.push(item);
+    return newCart;
+}
+
+```
+## 2.2
+```JavaScript
+function multiplyWithRandom(number, randomValue) {
+    return number * randomValue;
+}
+```
+Da bei einer pure function der gleiche Eingabewert auch immer den gleichen Ausgabewert geben muss, kann man den randomValue nicht direkt in der Funtktion erzeugen.
+## 2.3
+```JavaScript
+
+```

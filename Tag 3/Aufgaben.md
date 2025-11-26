@@ -25,9 +25,16 @@ let newCart = cartItems;
 function multiplyWithRandom(number, randomValue) {
     return number * randomValue;
 }
+
+console.log(multiplyWithRandom(number, Math.random());
 ```
 Da bei einer pure function der gleiche Eingabewert auch immer den gleichen Ausgabewert geben muss, kann man den randomValue nicht direkt in der Funtktion erzeugen.
 ## 2.3
 ```JavaScript
+function printAndReturnString(str) {
+    return str;
+}
 
+console.log(printAndReturnString(str);
 ```
+Da per Definition eine Funktion impure ist, wenn sie einen console.log macht, muss dieser ausserhalb der Funktion geschehen.

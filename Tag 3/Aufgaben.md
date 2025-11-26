@@ -115,7 +115,8 @@ function sortObjects(objectList) {
 ```
 ## 3.5
 ```JavaScript
-function getLeaves(parentElement) {
+function getLeaves(tree) {
+    let parentElement = tree.deepCopy();
     let leaves = [];
     for (let i = 0; i < parentElement.childElements.length; i++) {
             let activeElement = parentElement.childElements[i];

@@ -82,7 +82,49 @@ function sortList(stringList) {
 ```
 ## 3.4
 ```JavaScript
+function sortObjects(objectList) {
+    const listCopy = [...objectList];
+    let sorted = true;
 
+    for (let i = 0; i < listCopy.length - 1; i++) {
+        const a = listCopy[i];
+        const b = listCopy[i + 1];
 
+        let swap = false;
 
+        if (a.date > b.date) {
+            swap = true;
+        } 
+        else if (a.date === b.date && a.prio > b.prio) {
+            swap = true;
+        } 
+        else if (a.date === b.date && a.prio === b.prio && a.title.localeCompare(b.title) > 0) {
+            swap = true;
+        }
+
+        if (swap) {
+            [listCopy[i], listCopy[i + 1]] = [listCopy[i + 1], listCopy[i]];
+            sorted = false;
+        }
+    }
+
+    if (sorted) return listCopy;
+
+    return sortObjects(listCopy);
+}
+```
+## 3.5
+```JavaScript
+function getLeaves(parentElement) {
+    let leaves = [];
+    for (let i = 0; i < parentElement.childElements.length; i++) {
+            let activeElement = parentElement.childElements[i];
+        if (!activeElement.hasChildElements) {
+            leaves.push(activeElement);
+        } else {
+            leaves.push(...getLeaves(activeElement));
+        }
+    }
+    return leaves;
+}
 ```

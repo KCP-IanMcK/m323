@@ -50,3 +50,20 @@ mitarbeiterList.filter(mitarbeiter -> mitarbeiter.gehalt >= 50000).map(mitarbeit
 kurse.filter(kurs -> kurs.includes("daten").map(kurs -> kurs.replace(" ", "")).sorted()
 kurse.filter(kurs -> kurs.includes("daten").map(kurs -> kurs.replace(" ", "")).sort((a, b) -> b.compareTo(a))
 ```
+# foldLeft
+## Übung 1
+```Java
+numbers.foldLeft(0)((sum, x) -> sum + x)
+```
+## Übung 2
+```Java
+strings.foldLeft("")((combined, x) -> combined + x)
+```
+## Übung 3
+```Java
+val n = points.size
+val (sumX, sumY) = points.foldLeft((0, 0)) { case ((sx, sy), (x, y)) =>
+  (sx + x, sy + y)
+}
+val center = (sumX.toDouble / n, sumY.toDouble / n)
+```

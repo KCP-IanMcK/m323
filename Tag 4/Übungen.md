@@ -40,3 +40,13 @@ words.filter(word -> word.chatAt(0) == 'S')
 ```Java
 books.filter(book -> book.jahr < 1950).map(book -> book.titel)
 ```
+# Map und Filter
+## Übung 1
+```Java
+mitarbeiterList.filter(mitarbeiter -> mitarbeiter.gehalt >= 50000).map(mitarbeiter -> mitarbeiter.name.split(" ")[0].toUpperCase)
+```
+## Übung 2
+```Java
+kurse.filter(kurs -> kurs.includes("daten").map(kurs -> kurs.replace(" ", "")).sorted()
+kurse.filter(kurs -> kurs.includes("daten").map(kurs -> kurs.replace(" ", "")).sort((a, b) -> b.compareTo(a))
+```

@@ -67,3 +67,41 @@ val (sumX, sumY) = points.foldLeft((0, 0)) { case ((sx, sy), (x, y)) =>
 }
 val center = (sumX.toDouble / n, sumY.toDouble / n)
 ```
+# FlatMap
+## Übung 1
+```Java
+numbers.flatmap(number -> number).map(number -> number * 2)
+```
+## Übung 2
+```Java
+list.flatMap(element -> element.color).distinct()
+```
+# For Comprehensions
+## Übung 1
+```Scala
+val function = for {
+n <- numbers
+} yield n * n
+```
+## Übung 2
+```Scala
+val function = for {
+n <- numbers
+if n % 2 == 0
+} yield n
+```
+## Übung 3
+```Scala
+val combinations = for {
+x <- list1
+y <- list2
+} yield (x, y)
+```
+## Übung 4
+```Scala
+val pendingTasks = for {
+x <- user
+y <- user.tasks
+if !tasksCompleted.contains(y)
+} yield (x, y)
+```

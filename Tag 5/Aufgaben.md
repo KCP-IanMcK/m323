@@ -52,4 +52,5 @@ val getWeather: () => (String, LocalDate, Double) =
 ```Scala
 val t1: (String, Double) = [("sonnig", 12.5), ("regnerisch", 10.2), ("sonnig", 21.5)];
 val getWeatherAbove: (Double, List[(String, Double)]) => List[(String, Double)] = (temperature, list) => list.filter(item => item._2 > temperature);
+getWeatherAbove(20.0, t1);
 ```
